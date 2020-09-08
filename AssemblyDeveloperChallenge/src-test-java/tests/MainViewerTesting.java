@@ -19,7 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.junit.Test;
 
-import model.ConferenceSystem;
+import controller.ConferenceSystem;
 
 public class MainViewerTesting {
 

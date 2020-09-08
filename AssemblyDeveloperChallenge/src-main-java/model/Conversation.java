@@ -2,7 +2,7 @@ package model;
 
 public class Conversation implements Comparable<Object> {
 	String title, name, scheduledTime;
-	int timeDuration;
+	private int timeDuration;
 	boolean scheduled = false;
 
 	/**

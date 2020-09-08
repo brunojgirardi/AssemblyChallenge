@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import model.ConferenceSystem;
+import controller.ConferenceSystem;
 
 public class MainViewer {
 
