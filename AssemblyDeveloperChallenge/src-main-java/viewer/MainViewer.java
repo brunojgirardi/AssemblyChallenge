@@ -56,7 +56,7 @@ public class MainViewer {
 		frmMainwindow.setForeground(Color.DARK_GRAY);
 		frmMainwindow.setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MainViewer.class.getResource("/javax/swing/plaf/metal/icons/ocean/hardDrive.gif")));
-		frmMainwindow.setTitle("﻿Problem Statement - Assembly Line");
+		frmMainwindow.setTitle("Problem Statement - Assembly Line");
 		frmMainwindow.setResizable(false);
 		frmMainwindow.getContentPane().setFont(new Font("Eras Light ITC", Font.PLAIN, 11));
 		frmMainwindow.setBounds(100, 100, 523, 163);
@@ -80,9 +80,14 @@ public class MainViewer {
 		btnGenerate.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String dir = null;
+				String dir = null;			
 				dir = txtDirectory.getText();
-
+				
+				if(dir.length() == 0) {
+					JOptionPane.showMessageDialog(null, "The file has not been attached.");
+					return;
+				};
+				
 				try {
 					this.executeFile(dir);
 				} catch (Exception ee) {
