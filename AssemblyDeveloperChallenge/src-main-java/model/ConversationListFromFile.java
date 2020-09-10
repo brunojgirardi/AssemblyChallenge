@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 public class ConversationListFromFile {
 
 	private List<String> ConversationList;
-	
-	public List<String> getConversationListFromFile(String fileName) throws Throwable {
+
+	public List<String> getConversationListFromFile(String fileName) throws Exception {
 		ConversationList = new ArrayList<String>();
 		try {
 
@@ -21,6 +21,13 @@ public class ConversationListFromFile {
 
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+			int verifyFileIntegratity = br.read();
+
+			if (verifyFileIntegratity == -1) {
+				br.close();
+				throw new Exception("The file is empty.");
+			}
+
 			String stringLines = br.readLine();
 
 			while (stringLines != null) {
@@ -30,12 +37,12 @@ public class ConversationListFromFile {
 
 			in.close();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "File not attached. Try again." + e.getMessage(), "Alert", 2, null);
+			JOptionPane.showMessageDialog(null, "Problem while importing the file. \n" + e.getMessage(), "Alert", 2, null);
 			e.getStackTrace();
-			throw new Exception("File could not be founded.");
+			throw new Exception();
 		}
 
 		return ConversationList;
 	}
-	
+
 }
